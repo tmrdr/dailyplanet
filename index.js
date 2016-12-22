@@ -1,3 +1,7 @@
+// $(document).ready(function(){});
+
+//jquery is crashing nodemon
+
 //requires
 var express = require("express");
 var bodyParser = require("body-parser");
@@ -55,6 +59,76 @@ app.post("/articles/new", function(req, res){
   });
 });
 
+//get edit
+app.get("/edit/:id", function(req, res){
+  console.log(req.params.id);
+  db.article.findById(req.params.id).then(function(article){
+  res.render("articles/edit", {article: article});
+  });
+});
+
+
+// $(".edit-form").on('submit', function(e){
+//   e.preventDefault();
+//   console.log("Edit submit just got clicked...");
+//   var element = $(this);
+//   var url = element.attr('action');
+//   var formData = element.serialize();
+// });
+
+//jquery is crashing nodemon
+
 
 //list
 app.listen(3000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// app.put('/articles/:id', function(req, res) {
+//   var articleContent = req.body.body;
+//   var articleTitle = req.body.title;
+//   var articleId = req.params.id;
+//
+//       db.article.update(
+//         {title: articleTitle}, {where: {id: articleId}},
+//         {content: articleContent}, {where: {id: articleId}
+//       }).then(function(user) {
+//         // do something when done updating
+//       });
+//       db.article.update(
+//
+//         {content: articleContent}, {where: {id: articleId}
+//       }).then(function(user) {
+//         // do something when done updating
+//       });
+//   res.send({message: 'success'});
+// });

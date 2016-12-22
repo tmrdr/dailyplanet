@@ -3,12 +3,16 @@
 <% articles.forEach(function(article){ %>
     <div class="row">
         <div class="col-xs-12">
-            <p>
+            <h3><p>
             Title
             <a href="/articles/<%= article.id %>">
             <%= article.title %> </a>
+          </p></h3>
+            <p>
+              <a href="/edit/<%= article.id %>" class=" btn btn-warning edit">Edit Article</a>
+              <a href="/article/<%= article.id %>" class=" btn btn-danger delete">Delete</a>
             </p>
-
+            <br>
         </div>
     </div>
 <% }) %>

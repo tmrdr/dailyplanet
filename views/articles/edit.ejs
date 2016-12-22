@@ -1,0 +1,20 @@
+<!-- <h2>Edit article</h2>
+
+<h2><%= article.title %></h2>
+
+<p>
+<%= article.body %>
+</p> -->
+<form action="/articles/<%= article.id %>" method="PUT" class="edit-form">
+  <div class="form-group">
+    <label for="title">Title:</label>
+    <input type="text" name="title" id="title" class="form-control" value="<%= article.title %>">
+  </div>
+
+  <div class="form-group">
+    <label for="content">Content:</label>
+    <textarea type="text" name="content" id="content" class="form-control" rows="5" col="25" ><%= article.body %></textarea>
+  </div>
+
+  <input type="submit" value="Update Article">
+</form>
