@@ -1,0 +1,14 @@
+<h3 class="text-center">List of all articles</h3>
+
+<% articles.forEach(function(article){ %>
+    <div class="row">
+        <div class="col-xs-12">
+            <p>
+            Title
+            <a href="/articles/<%= article.id %>">
+            <%= article.title %> </a>
+            </p>
+
+        </div>
+    </div>
+<% }) %>
