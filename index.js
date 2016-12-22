@@ -17,6 +17,14 @@ app.get("/", function(req,res){
   res.render("home");
 });
 
+app.get("/about", function(req,res){
+  res.render("site/about");
+});
+
+app.get("/contact", function(req,res){
+  res.render("site/contact");
+});
+
 // get all articles
 app.get("/show", function(req,res){
   db.article.findAll().then(function(articles){
@@ -25,11 +33,12 @@ app.get("/show", function(req,res){
   });
 });
 
-//get one article by one id
-app.get("/show/:id", function(req, res){
+
+//get one article
+app.get("/articles/:id", function(req, res){
   console.log(req.params.id);
-  db.article.findById(req.params.id).then(function(f){
-      res.render("/one", {articles: f});
+  db.article.findById(req.params.id).then(function(article){
+  res.render("articles/one", {article: article});
   });
 });
 
